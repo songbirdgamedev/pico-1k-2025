@@ -8,35 +8,35 @@ comp_points=0
 scored=""
 
 function _init()
- --variables
+	--variables
 
- player = {
-  x=8,
-  y=63,
-  c=12,
-  w=2,
-  h=10,
-  speed=1
- }
-
- comp={
-  x=117,
-  y=63,
-  c=8,
-	 w=2,
-  h=10,
-	 speed=0.75
+	player = {
+		x=8,
+		y=63,
+		c=12,
+		w=2,
+		h=10,
+		speed=1
 	}
 
- ball={
-	 x=63,
-	 y=63,
-	 c=7,
-	 w=2,
-	 dx=0.6,
-	 dy=flr(rnd(2))-0.5,
-	 speed=1,
-	 speedup=0.05
+	comp={
+		x=117,
+		y=63,
+		c=8,
+		w=2,
+		h=10,
+		speed=0.75
+	}
+
+	ball={
+		x=63,
+		y=63,
+		c=7,
+		w=2,
+		dx=0.6,
+		dy=flr(rnd(2))-0.5,
+		speed=1,
+		speedup=0.05
 	}
 end
 
