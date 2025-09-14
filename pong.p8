@@ -5,7 +5,6 @@ __lua__
 
 player_points = 0
 comp_points = 0
-scored = ""
 
 function _init()
 	--variables
@@ -40,15 +39,6 @@ function _init()
 		speed = 1,
 		speedup = 0.05
 	}
-
-	--sound
-	if scored == "player" then
-		sfx(3)
-	elseif scored == "comp" then
-		sfx(4)
-	else
-		sfx(5)
-	end
 
 	--court
 	c_left = 0
@@ -101,7 +91,7 @@ function _update60()
 			and ball.y >= comp.y
 			and ball.y + ball.w <= comp.y + comp.h then
 		ball.dx = -(ball.dx + ball.speedup)
-		sfx(0)
+		print "\ac"
 	end
 
 	--collide with player
@@ -133,25 +123,25 @@ function _update60()
 		end
 		--flip ball dx and add speed
 		ball.dx = -(ball.dx - ball.speedup)
-		sfx(1)
+		print "\ag"
 	end
 
 	--collide with court
 	if ball.y + ball.w >= c_bottom
 			or ball.y <= c_top + 1 then
 		ball.dy = -ball.dy
-		sfx(2)
+		print "\ae"
 	end
 
 	--score
 	if ball.x > c_right then
 		player_points += 1
-		scored = "player"
+		print "\ac..e..g"
 		_init() --reset game
 	end
 	if ball.x < c_left then
 		comp_points += 1
-		scored = "comp"
+		print "\ag..e..c"
 		_init() --reset game
 	end
 
