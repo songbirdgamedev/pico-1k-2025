@@ -105,6 +105,36 @@ function _update60()
 	end
 
 	--collide with player
+	if ball.dx < 0
+			and ball.x >= player.x
+			and ball.x <= player.x + player.w
+			and ball.y >= player.y
+			and ball.y + ball.w <= player.y + player.h then
+		--control ball dy if hit and press up or down
+		if btn(⬆️) then
+			if ball.dy > 0 then
+				--ball moves down
+				ball.dy = -ball.dy
+				ball.dy -= ball.speedup * 2
+			else
+				--ball moves up
+				ball.dy -= ball.speedup * 2
+			end
+		end
+		if btn(⬇️) then
+			if ball.dy < 0 then
+				--ball moves up
+				ball.dy = -ball.dy
+				ball.dy += ball.speedup * 2
+			else
+				--ball moves down
+				ball.dy += ball.speedup * 2
+			end
+		end
+		--flip ball dx and add speed
+		ball.dx = -(ball.dx - ball.speedup)
+		sfx(1)
+	end
 
 	--collide with court
 	if ball.y + ball.w >= c_bottom
