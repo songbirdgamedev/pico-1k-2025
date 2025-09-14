@@ -9,7 +9,6 @@ scored = ""
 
 function _init()
 	--variables
-
 	player = {
 		x = 8,
 		y = 63,
@@ -47,6 +46,17 @@ function _init()
 	else
 		sfx(5)
 	end
+
+	--court
+	court_left = 0
+	court_right = 127
+	court_top = 10
+	court_bottom = 127
+
+	--court line
+	line_x = 63
+	line_y = 10
+	line_length = 4
 end
 
 function _update()
