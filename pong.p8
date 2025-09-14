@@ -13,8 +13,9 @@ function _init()
 		x = 8,
 		y = 63,
 		c = 12,
-		w = 2,
+		w = 3,
 		h = 10,
+		r = 0,
 		speed = 1
 	}
 
@@ -22,8 +23,9 @@ function _init()
 		x = 117,
 		y = 63,
 		c = 8,
-		w = 2,
+		w = 3,
 		h = 10,
+		r = 0,
 		speed = 0.75
 	}
 
@@ -31,7 +33,8 @@ function _init()
 		x = 63,
 		y = 63,
 		c = 7,
-		w = 2,
+		w = 3,
+		r = 0,
 		dx = 0.6,
 		dy = flr(rnd(2)) - 0.5,
 		speed = 1,
@@ -76,10 +79,34 @@ function _draw()
 	line_y = c_top
 
 	--ball
+	rrectfill(
+		ball.x,
+		ball.y,
+		ball.w,
+		ball.w,
+		ball.r,
+		ball.c
+	)
 
 	--player
+	rrectfill(
+		player.x,
+		player.y,
+		player.w,
+		player.h,
+		player.r,
+		player.c
+	)
 
 	--computer
+	rrectfill(
+		comp.x,
+		comp.y,
+		comp.w,
+		comp.h,
+		comp.r,
+		comp.c
+	)
 
 	--scores
 end
