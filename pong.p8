@@ -14,7 +14,7 @@ function _init()
 		y = 63,
 		c = 12,
 		w = 3,
-		h = 10,
+		h = 12,
 		r = 0,
 		speed = 1
 	}
@@ -24,9 +24,9 @@ function _init()
 		y = 63,
 		c = 8,
 		w = 3,
-		h = 10,
+		h = 12,
 		r = 0,
-		speed = 0.75
+		speed = 1
 	}
 
 	ball = {
@@ -72,6 +72,24 @@ function _update60()
 	end
 
 	--computer controls
+	mid_comp = comp.y + (comp.h / 2)
+
+	if ball.dx > 0 then
+		if mid_comp > ball.y and comp.y > c_top + 1 then
+			comp.y -= comp.speed
+		end
+		if mid_comp < ball.y and comp.y + comp.h < c_bottom then
+			comp.y += comp.speed
+		end
+	else
+		if mid_comp > c_bottom - 48 then
+			comp.y -= comp.speed
+		end
+		if mid_comp < c_top + 48 then
+			comp.y += comp.speed
+		end
+	end
+
 	--collide with comp
 	--collide with player
 	--collide with court
