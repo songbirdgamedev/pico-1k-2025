@@ -48,10 +48,10 @@ function _init()
 	end
 
 	--court
-	court_left = 0
-	court_right = 127
-	court_top = 10
-	court_bottom = 127
+	c_left = 0
+	c_right = 127
+	c_top = 10
+	c_bottom = 127
 
 	--court line
 	line_x = 63
@@ -63,6 +63,25 @@ function _update()
 end
 
 function _draw()
+	cls()
+
+	--court
+	rect(c_left, c_top, c_right, c_bottom, 5)
+
+	--dashed line
+	repeat
+		line(line_x, line_y, line_x, line_y + line_length, 5)
+		line_y += line_length * 2
+	until line_y > c_bottom
+	line_y = c_top
+
+	--ball
+
+	--player
+
+	--computer
+
+	--scores
 end
 
 __gfx__
