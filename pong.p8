@@ -64,10 +64,12 @@ end
 
 function _update60()
 	--player controls
-	if btn(⬆️) and player.y > c_top + 1 then
+	if btn(⬆️)
+			and player.y > c_top + 1 then
 		player.y -= player.speed
 	end
-	if btn(⬇️) and player.y + player.h < c_bottom then
+	if btn(⬇️)
+			and player.y + player.h < c_bottom then
 		player.y += player.speed
 	end
 
@@ -75,10 +77,12 @@ function _update60()
 	mid_comp = comp.y + (comp.h / 2)
 
 	if ball.dx > 0 then
-		if mid_comp > ball.y and comp.y > c_top + 1 then
+		if mid_comp > ball.y
+				and comp.y > c_top + 1 then
 			comp.y -= comp.speed
 		end
-		if mid_comp < ball.y and comp.y + comp.h < c_bottom then
+		if mid_comp < ball.y
+				and comp.y + comp.h < c_bottom then
 			comp.y += comp.speed
 		end
 	else
@@ -91,8 +95,24 @@ function _update60()
 	end
 
 	--collide with comp
+	if ball.dx > 0
+			and ball.x + ball.w >= comp.x
+			and ball.x + ball.w <= comp.x + comp.w
+			and ball.y >= comp.y
+			and ball.y + ball.w <= comp.y + comp.h then
+		ball.dx = -(ball.dx + ball.speedup)
+		sfx(0)
+	end
+
 	--collide with player
+
 	--collide with court
+	if ball.y + ball.w >= c_bottom
+			or ball.y <= c_top + 1 then
+		ball.dy = -ball.dy
+		sfx(2)
+	end
+
 	--score
 
 	--ball movement
