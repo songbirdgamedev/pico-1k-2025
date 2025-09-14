@@ -62,7 +62,7 @@ function _init()
 	line_length = 4
 end
 
-function _update()
+function _update60()
 	--player controls
 	if btn(⬆️) and player.y > c_top + 1 then
 		player.y -= player.speed
@@ -76,7 +76,10 @@ function _update()
 	--collide with player
 	--collide with court
 	--score
+
 	--ball movement
+	ball.x += ball.dx
+	ball.y += ball.dy
 end
 
 function _draw()
