@@ -24,7 +24,7 @@ function _init()
 		w = 3,
 		h = 12,
 		r = 0,
-		speed = 0.5
+		speed = 0.6
 	}
 
 	ball = {
@@ -33,7 +33,7 @@ function _init()
 		c = 7,
 		w = 3,
 		r = 0,
-		dx = 1,
+		dx = 0.8,
 		dy = flr(rnd(2)) - 0.5,
 		speedup = 0.05
 	}
@@ -57,7 +57,7 @@ end
 function _update60()
 	--player controls
 	if btn(⬆️)
-			and player.y > court.top + 1 then
+			and player.y >= court.top + 2 then
 		player.y -= player.speed
 	end
 	if btn(⬇️)
@@ -70,7 +70,7 @@ function _update60()
 
 	if ball.dx > 0 then
 		if mid_comp > ball.y
-				and comp.y > court.top + 1 then
+				and comp.y >= court.top + 2 then
 			comp.y -= comp.speed
 		end
 		if mid_comp < ball.y
