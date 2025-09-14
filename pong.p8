@@ -109,4 +109,6 @@ function _draw()
 	)
 
 	--scores
+	print(player_points, 30, 2, player.c)
+	print(comp_points, 95, 2, comp.c)
 end
