@@ -33,9 +33,8 @@ function _init()
 		c = 7,
 		w = 3,
 		r = 0,
-		dx = 0.6,
+		dx = 1,
 		dy = flr(rnd(2)) - 0.5,
-		speed = 1,
 		speedup = 0.05
 	}
 
@@ -91,8 +90,8 @@ function _update60()
 	if ball.dx > 0
 			and ball.x + ball.w >= comp.x
 			and ball.x + ball.w <= comp.x + comp.w
-			and ball.y >= comp.y
-			and ball.y + ball.w <= comp.y + comp.h then
+			and ball.y + ball.w > comp.y
+			and ball.y < comp.y + comp.h then
 		ball.dx = -(ball.dx + ball.speedup)
 		print "\ac"
 	end
@@ -101,8 +100,8 @@ function _update60()
 	if ball.dx < 0
 			and ball.x >= player.x
 			and ball.x <= player.x + player.w
-			and ball.y >= player.y
-			and ball.y + ball.w <= player.y + player.h then
+			and ball.y + ball.w > player.y
+			and ball.y < player.y + player.h then
 		if btn(⬆️) then
 			if ball.dy > 0 then
 				ball.dy = -ball.dy
