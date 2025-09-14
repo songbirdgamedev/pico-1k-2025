@@ -63,6 +63,20 @@ function _init()
 end
 
 function _update()
+	--player controls
+	if btn(⬆️) and player.y > c_top + 1 then
+		player.y -= player.speed
+	end
+	if btn(⬇️) and player.y + player.h < c_bottom then
+		player.y += player.speed
+	end
+
+	--computer controls
+	--collide with comp
+	--collide with player
+	--collide with court
+	--score
+	--ball movement
 end
 
 function _draw()
