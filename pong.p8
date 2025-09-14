@@ -21,7 +21,7 @@ function _init()
 	comp = {
 		x = 117,
 		y = 63,
-		c = 8,
+		c = 14,
 		w = 3,
 		h = 12,
 		r = 0,
@@ -49,7 +49,7 @@ function _init()
 	--court line
 	line_x = 63
 	line_y = 10
-	line_length = 4
+	line_length = 2
 end
 
 function _update60()
@@ -137,12 +137,12 @@ function _update60()
 	if ball.x > c_right then
 		player_points += 1
 		print "\ac..e..g"
-		_init() --reset game
+		_init()
 	end
 	if ball.x < c_left then
 		comp_points += 1
 		print "\ag..e..c"
-		_init() --reset game
+		_init()
 	end
 
 	--ball movement
@@ -154,11 +154,11 @@ function _draw()
 	cls()
 
 	--court
-	rect(c_left, c_top, c_right, c_bottom, 5)
+	rect(c_left, c_top, c_right, c_bottom, 13)
 
 	--dashed line
 	repeat
-		line(line_x, line_y, line_x, line_y + line_length, 5)
+		rrect(line_x, line_y, line_length, line_length, 0, 13)
 		line_y += line_length * 2
 	until line_y > c_bottom
 	line_y = c_top
@@ -194,6 +194,9 @@ function _draw()
 	)
 
 	--scores
-	print(player_points, 30, 2, player.c)
-	print(comp_points, 95, 2, comp.c)
+	print(player_points, player.x, 2, player.c)
+	print(comp_points, comp.x, 2, comp.c)
+
+	--title
+	print("pico-pong!", 46, 2, 7)
 end
