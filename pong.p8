@@ -26,7 +26,7 @@ function _init()
 		w = 3,
 		h = 12,
 		r = 0,
-		speed = 1
+		speed = 0.5
 	}
 
 	ball = {
@@ -144,6 +144,16 @@ function _update60()
 	end
 
 	--score
+	if ball.x > c_right then
+		player_points += 1
+		scored = "player"
+		_init() --reset game
+	end
+	if ball.x < c_left then
+		comp_points += 1
+		scored = "comp"
+		_init() --reset game
+	end
 
 	--ball movement
 	ball.x += ball.dx
